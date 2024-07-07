@@ -17,13 +17,14 @@ var cors = require("cors")
 dotenv.config();
 
 const app = express();
-app.use(cors());
 
 // Parse the body text
 app.use(bodyParser.json());
 // Parse Cookies
 app.use(cookieparser())
 // CORS
+app.use(cors());
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
